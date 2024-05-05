@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./WEB-INF/templates/publicTemplate.xhtml"
+                xmlns:p="jakarta.faces.passthrough"
+                xmlns:h="jakarta.faces.html">
+
+    <ui:define name="title">
+        Registration Success
+    </ui:define>
+
+    <ui:define name="content">
+        <main class="form-signin w-100 m-auto">
+            <h1 class="h3 mb-3 fw-normal">Registration Successful!</h1>
+            <p style="color: green;">Your account has been successfully created.</p>
+            <h:button styleClass="btn btn-primary w-100 py-2" value="Return to Login" outcome="login.xhtml"/>
+            <p class="mt-5 mb-3 text-body-secondary">&#169; 2017–2024</p>
+        </main>
+    </ui:define>
+
+</ui:composition>

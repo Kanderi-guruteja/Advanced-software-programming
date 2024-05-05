@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./WEB-INF/templates/authenticatedTemplate.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="title">
+        Reserve a Car
+    </ui:define>
+
+    <ui:define name="content">
+        <div style="text-align: center; padding: 20px;">
+            <h2 style="color: #333; font-size: 24px; margin-bottom: 20px;">Reserve a Car</h2>
+
+            <h:form>
+                <h:panelGrid columns="2" columnClasses="column1,column2" style="margin-bottom: 20px;">
+                    <h:outputLabel for="carSelect" value="Select Car:" />
+                    <h:selectOneMenu id="carSelect" value="#{reservationBean.selectedCarId}" required="true">
+                        <f:selectItem itemLabel="Select a Car" itemValue="" />
+                        <f:selectItems value="#{defaultWelcomeController.availableCars}" var="car" itemLabel="#{car.name}" itemValue="#{car.id}" />
+                    </h:selectOneMenu>
+
+                    <h:outputLabel for="reservationDate" value="Reservation Date:" />
+                    <input type="date" id="reservationDate" name="reservationDate" value="#{reservationBean.reservationDate}" required="true" style="width: 200px;" />
+
+                    <h:outputLabel for="reservationTime" value="Reservation Time:" />
+                    <input type="time" id="reservationTime" name="reservationTime" value="#{reservationBean.reservationTime}" required="true" style="width: 200px;" />
+                </h:panelGrid>
+
+                <h:commandButton value="Reserve Car" action="#{reservationBean.reserveCar}" styleClass="btn btn-primary" />
+            </h:form>
+
+            <!-- Display reservation details -->
+            <h:panelGroup rendered="#{reservationBean.reservationMade}">
+                <h3>Reservation Details</h3>
+                <!-- Display reservation details -->
+                <h:panelGroup rendered="#{reservationBean.reservationMade}">
+                    
+                    <div class="reservation-details">
+                        <span class="details-label">Selected Car:</span>
+                        <span class="details-value">#{reservation.car.name}</span>
+                    </div>
+                </h:panelGroup>
+            </h:panelGroup>
+        </div>
+    </ui:define>
+</ui:composition>

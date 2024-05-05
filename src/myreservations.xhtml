@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./WEB-INF/templates/authenticatedTemplate.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="title">
+        My Reservations
+    </ui:define>
+
+    <ui:define name="content">
+        <div style="text-align: center; padding: 20px;">
+            <h2 style="color: #333; font-size: 24px; margin-bottom: 20px;">My Reservations</h2>
+
+            <div style="margin-top: 30px;">
+                <h3 style="color: #343a40; font-size: 20px;">Your Reservations:</h3>
+                <ui:repeat value="#{reservationBean.userReservations}" var="reservation">
+                    <div style="margin-top: 20px; border: 1px solid #ccc; padding: 10px;">
+                        <div style="font-weight: bold; color: #28a745;">Car:</div>
+                        <div>#{reservation.car.name}</div>
+
+                        <div style="margin-top: 10px;">
+                            <span style="font-weight: bold; color: #28a745;">Reservation Date:</span>
+                            <span>#{reservation.reservationDate}</span>
+                        </div>
+
+                        <div style="margin-top: 10px;">
+                            <span style="font-weight: bold; color: #28a745;">Reservation Time:</span>
+                            <span>#{reservation.reservationTime}</span>
+                        </div>
+                    </div>
+                </ui:repeat>
+
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>

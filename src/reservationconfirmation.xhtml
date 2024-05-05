@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <ui:composition template="./WEB-INF/templates/authenticatedTemplate.xhtml">
+
+        <ui:define name="title">
+            Reservation Confirmation
+        </ui:define>
+
+        <ui:define name="content">
+            <div style="text-align: center; padding: 20px;">
+
+
+                <div style="margin-top: 30px;">
+                    <h3 style="color: #343a40; font-size: 24px;">Reservation Details</h3>
+                    <div style="margin-top: 20px;">
+                        <span style="font-weight: bold; color: #0069d9;">Selected Car:</span>
+                        <span style="color: #495057;">#{reservation.car.name}</span>
+                    </div>
+                    
+                    <div style="margin-top: 20px;">
+                        <span style="font-weight: bold; color: #28a745;">Reservation Date</span>
+                        <span style="color: #495057;">#{reservation.reservationDate}</span>
+                    </div>
+                    
+                    <div style="margin-top: 20px;">
+                        <span style="font-weight: bold; color: #28a745;">Reservation Time:</span>
+                        <span style="color: #495057;">#{reservation.reservationTime}</span>
+                    </div>
+
+                    <div style="margin-top: 10px;">
+                        <span style="font-weight: bold; color: #28a745;">Message:</span>
+                        <span style="color: #495057;">Your car has been reserved successfully.</span>
+                    </div>
+                </div>
+
+                <div style="margin-top: 40px;">
+                    <h3 style="color: #28a745; font-size: 28px;">Have a safe ride :)!!!!</h3>
+                </div>
+            </div>
+        </ui:define>
+
+    </ui:composition>
+
+</html>

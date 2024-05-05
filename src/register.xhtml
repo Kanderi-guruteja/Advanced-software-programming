@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./WEB-INF/templates/publicTemplate.xhtml"
+                xmlns:p="jakarta.faces.passthrough"
+                xmlns:h="jakarta.faces.html">
+
+    <ui:define name="title">
+        Sign Up Page
+    </ui:define>
+
+    <ui:define name="content">
+
+        <main class="form-signin w-100 m-auto">
+            <h:form>
+                <h1 class="h3 mb-3 fw-normal">Create Your Account</h1>
+
+                <h:panelGroup styleClass="form-floating" layout="block">
+                    <h:inputText binding="#{uname}" 
+                                 styleClass="#{uname.valid ? 'form-control' : 'form-control is-invalid'}" 
+                                 id="userName" 
+                                 p:placeholder="Username"
+                                 value="#{loginController.user.userName}" />
+                    <h:outputLabel value="User Name" for="userName" />
+                    <h:message for="userName" errorStyle="color: red" infoStyle="color: green"/>
+                </h:panelGroup>
+
+                <h:panelGroup styleClass="form-floating" layout="block">
+                    <h:inputSecret binding="#{passwd}"
+                                   styleClass="#{passwd.valid ? 'form-control' : 'form-control is-invalid'}" 
+                                   id="password" 
+                                   p:placeholder="Password"
+                                   value="#{loginController.user.password}" />
+                    <h:outputLabel value="Password" for="password" />
+                    <h:message for="password" errorStyle="color: red" infoStyle="color: green"/>
+                </h:panelGroup>
+
+                <h:panelGroup styleClass="form-floating" layout="block">
+                    <h:inputText binding="#{fullName}" 
+                                 styleClass="#{fullName.valid ? 'form-control' : 'form-control is-invalid'}" 
+                                 id="fullName" 
+                                 p:placeholder="Full Name"
+                                 value="#{loginController.user.fullName}" />
+                    <h:outputLabel value="Full Name" for="fullName" />
+                    <h:message for="fullName" errorStyle="color: red" infoStyle="color: green"/>
+                </h:panelGroup>
+
+                <h:panelGroup styleClass="form-floating" layout="block">
+                    <h:inputText binding="#{email}" 
+                                 styleClass="#{email.valid ? 'form-control' : 'form-control is-invalid'}" 
+                                 id="email" 
+                                 p:placeholder="Email"
+                                 value="#{loginController.user.email}" />
+                    <h:outputLabel value="Email" for="email" />
+                    <h:message for="email" errorStyle="color: red" infoStyle="color: green"/>
+                </h:panelGroup>
+
+                <h:commandButton styleClass="btn btn-primary w-100 py-2" 
+                 value="Register" 
+                 action="#{loginController.registerUser}" />
+
+                <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2024</p>
+            </h:form>
+        </main>        
+
+    </ui:define>
+
+</ui:composition>
